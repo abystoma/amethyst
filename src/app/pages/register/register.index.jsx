@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { useRegisterHook } from "./register.hook";
-import RegisterModal from "./components/register-modal.component";
+import { useRegisterHook } from './register.hook';
+import RegisterModal from './components/register-modal.component';
 
 const RegisterContainer = styled.section`
   display: flex;
@@ -13,12 +13,11 @@ const RegisterContainer = styled.section`
   background-color: rgba(238, 238, 238, 0.5);
 `;
 const Register = () => {
-  const { userInfo, setUserInfo, handleInput, submit } = useRegisterHook();
+  const { userInfo, handleInput, submit } = useRegisterHook();
   return (
     <RegisterContainer>
       <RegisterModal
         userInfo={userInfo}
-        setUserInfo={setUserInfo}
         handleInput={handleInput}
         submit={submit}
       />
