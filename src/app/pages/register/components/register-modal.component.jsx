@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 import {
   LoginContainer,
@@ -7,7 +7,7 @@ import {
   LoginForm,
   LoginInput,
   LoginButton,
-} from "../../login/components/login-modal.component";
+} from '../../login/components/login-modal.component';
 
 const RegisterContainer = styled(LoginContainer)``;
 const Register = styled(Login)``;
@@ -22,16 +22,16 @@ const RegisterModal = ({ userInfo, handleInput, submit }) => {
         <h1>Register</h1>
         <RegisterForm onSubmit={submit}>
           <RegisterInput
-            name="username"
-            type="text"
-            placeholder="Enter username"
+            name='username'
+            type='text'
+            placeholder='Enter username'
             value={userInfo.username}
             onChange={handleInput}
           />
           <RegisterInput
-            name="password"
-            type="password"
-            placeholder="Enter password"
+            name='password'
+            type='password'
+            placeholder='Enter password'
             value={userInfo.password}
             onChange={handleInput}
           />

@@ -1,8 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { useLoginHook } from './login.hook';
-import LoginModal from './components/login-modal.component';
+import { useLoginHook } from "./login.hook";
+import LoginModal from "./components/login-modal.component";
+import RedirectModal from "./components/redirect-modal.component";
 
 const LoginPageContainer = styled.section`
   display: flex;
@@ -13,19 +14,27 @@ const LoginPageContainer = styled.section`
   background-color: rgba(238, 238, 238, 0.5);
 `;
 const Login = () => {
-  const { loggedUser, userInfo, handleInput, submit, navigateToRegister } =
-    useLoginHook();
+  const {
+    user,
+    userInfo,
+    handleUserInput,
+    submit,
+    navigateToRegister,
+    redirectToDashboard,
+  } = useLoginHook();
 
   return (
     <>
-      {loggedUser?.id !== undefined ? (
-        <div>{JSON.stringify(loggedUser)}</div>
+      {user?.id !== undefined ? (
+        <LoginPageContainer>
+          <RedirectModal onRedirect={redirectToDashboard} />
+        </LoginPageContainer>
       ) : (
         <LoginPageContainer>
           <LoginModal
             toRegister={navigateToRegister}
             userInfo={userInfo}
-            handleInput={handleInput}
+            handleInput={handleUserInput}
             submit={submit}
           />
         </LoginPageContainer>
