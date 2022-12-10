@@ -4,13 +4,13 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faX } from '@fortawesome/free-solid-svg-icons';
 
-import ChaseLogo from '../../../../assets/logo/amethyst.logo';
+import MavenLogo from '../../../../assets/logo/maven.logo';
 
 const CreateProjectModal = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.95);
   width: 100vw;
   height: 100vh;
   position: absolute;
@@ -96,7 +96,7 @@ const CreateProjectComponent = ({
           <FontAwesomeIcon icon={faX} />
         </CreateExit>
         <CreateProject>
-          <ChaseLogo align='flex-start' />
+          <MavenLogo align='flex-start' />
           <CreateForm onSubmit={onProjectCreate}>
             <CreateInput
               name='project_name'

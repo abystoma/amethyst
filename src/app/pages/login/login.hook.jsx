@@ -21,6 +21,8 @@ export const useLoginHook = () => {
 
   const redirectToDashboard = () => navigate('/user/project');
 
+  const exitModal = () => navigate('/');
+
   const submit = (e) => {
     e.preventDefault();
     getUsers();
@@ -34,13 +36,13 @@ export const useLoginHook = () => {
   };
 
   const matchLoggedUser = () => {
-    // console.log('I was ran');
+    console.log('I was ran');
     users.map((user) => {
       if (
         user.username === loggedUser.username &&
         user.password === loggedUser.password
       ) {
-        // console.log('account matched, setting up new logged user');
+        console.log('account matched, setting up new logged user');
         setUser(user);
         navigate('/user/project');
       }
@@ -62,5 +64,6 @@ export const useLoginHook = () => {
 
     navigateToRegister,
     redirectToDashboard,
+    exitModal,
   };
 };

@@ -1,9 +1,14 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { useLoginHook } from "./login.hook";
-import LoginModal from "./components/login-modal.component";
-import RedirectModal from "./components/redirect-modal.component";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faX } from '@fortawesome/free-solid-svg-icons';
+
+import { useLoginHook } from './login.hook';
+import { ExitModal } from './components/login-modal.component';
+
+import LoginModal from './components/login-modal.component';
+import RedirectModal from './components/redirect-modal.component';
 
 const LoginPageContainer = styled.section`
   display: flex;
@@ -11,7 +16,10 @@ const LoginPageContainer = styled.section`
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(238, 238, 238, 0.5);
+  background-color: rgba(235, 235, 235, 0.9);
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 const Login = () => {
   const {
@@ -21,6 +29,7 @@ const Login = () => {
     submit,
     navigateToRegister,
     redirectToDashboard,
+    exitModal,
   } = useLoginHook();
 
   return (
@@ -31,6 +40,9 @@ const Login = () => {
         </LoginPageContainer>
       ) : (
         <LoginPageContainer>
+          <ExitModal onClick={exitModal}>
+            <FontAwesomeIcon icon={faX} />
+          </ExitModal>
           <LoginModal
             toRegister={navigateToRegister}
             userInfo={userInfo}

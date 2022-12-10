@@ -13,12 +13,10 @@ const RegisterContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 100vw;
   height: 100vh;
-
   background-color: rgba(235, 235, 235, 0.9);
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
 `;

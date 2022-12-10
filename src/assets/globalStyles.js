@@ -22,6 +22,12 @@ export const GlobalStyles = createGlobalStyle`
         --secondary-color: #395B64;
         --neutral-color1: #A5C9CA;
         --neutral-color2: #E7F6F2;
+
+        --todos: #FDFD96;
+        --in-progress: #FFB347;
+        --reviewing: #A5C9CA;
+        --finished: #C1E1C1;
+        
         margin: 0;
         padding: 0;
         box-sizing: border-box;

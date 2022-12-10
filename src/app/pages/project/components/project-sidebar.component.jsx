@@ -7,7 +7,7 @@ import {
   faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
 
-import ChaseLogo from '../../../../assets/logo/amethyst.logo';
+import MavenLogo from '../../../../assets/logo/maven.logo';
 
 const SidebarContainer = styled.section`
   display: flex;
@@ -22,6 +22,7 @@ const Sidebar = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 8px;
   height: 100%;
   flex-direction: column;
   margin-top: 25px;
@@ -46,6 +47,7 @@ const SidebarItem = styled.div`
   color: var(--secondary-color);
   transition: 300ms ease-in-out;
   border: none;
+  cursor: pointer;
 `;
 
 const Username = styled.p`
@@ -58,7 +60,7 @@ const Username = styled.p`
 const LogoutButton = styled.button`
   align-self: end;
   font-family: 'Oxygen Regular';
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--secondary-color);
   background-color: transparent;
   cursor: pointer;
@@ -71,10 +73,10 @@ const Divider = styled.div`
   opacity: 0.5;
 `;
 
-const ProjectSidebar = ({ username = 'chaaals' }) => {
+const ProjectSidebar = ({ username = 'chaaals', onLogOut }) => {
   return (
     <SidebarContainer>
-      <ChaseLogo />
+      <MavenLogo align='flex-start' />
       <Sidebar>
         <Username>
           Welcome to your dashboard, <strong>{username}</strong>
@@ -82,10 +84,10 @@ const ProjectSidebar = ({ username = 'chaaals' }) => {
         <Divider />
         <SidebarItemContainer>
           <SidebarItem>
-            Projects <FontAwesomeIcon icon={faAnglesRight} />
+            Your Projects <FontAwesomeIcon icon={faAnglesRight} />
           </SidebarItem>
         </SidebarItemContainer>
-        <LogoutButton>
+        <LogoutButton onClick={onLogOut}>
           Logout <FontAwesomeIcon icon={faArrowRightFromBracket} />
         </LogoutButton>
       </Sidebar>

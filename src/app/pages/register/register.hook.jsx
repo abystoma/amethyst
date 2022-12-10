@@ -7,7 +7,7 @@ import { useInputForm, USER_TEMPLATE } from '../../hooks/useInputForm.hook';
 const NEW_PROJECT_TEMPLATE = {
   project_name: 'Get started',
   project_description:
-    'Welcome to Amethyst! I am an auto generated project for every user! I exists so that I can show you the ropes :>',
+    'Welcome to Task Maven! I am an auto generated project for every user! I exists so that I can show you the ropes :>',
   date_created: new Date(Date.now()).toISOString(),
 };
 
@@ -21,17 +21,12 @@ export const useRegisterHook = () => {
     e.preventDefault();
     registerUser(userInfo);
     setUserInfo(USER_TEMPLATE);
-
-    navigate('/login');
   };
 
   const registerUser = async (payload) => {
-    console.log('register');
     const NEW_USER_ID = await (
       await addDoc(collection(db, 'users'), payload)
     ).id;
-    console.log("new");
-    console.log(NEW_USER_ID);
     setUpSubCollections(NEW_USER_ID);
   };
 
