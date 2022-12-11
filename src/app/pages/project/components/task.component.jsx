@@ -19,6 +19,7 @@ const TaskContainer = styled.div`
   ::-webkit-scrollbar {
     width: 10px;
   }
+  position: relative;
   ${({ tag }) => `border: 1px solid var(--${tag}); &:hover {
     background-color: var(--${tag})
   }`}
@@ -32,6 +33,12 @@ const TaskContainer = styled.div`
       opacity: 1;
     }
   }
+`;
+
+const TaskContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 `;
 
 const TaskText = styled.p`
@@ -51,16 +58,23 @@ const TaskText = styled.p`
 
 const Task = ({ id, task_name, task_note, tags = 'todos', onClick = null }) => {
   return (
-    <TaskContainer tag={tags} data-taskid={id}>
-      <TaskText textType='name' title={task_name}>
-        {task_name}
-      </TaskText>
-      {task_note && (
-        <>
-          <TaskText textType='heading'>Note:</TaskText>
-          <TaskText textType='note'>{task_note}</TaskText>
-        </>
-      )}
+    <TaskContainer
+      className='task'
+      tag={tags}
+      data-taskid={id}
+      onClick={onClick}
+    >
+      <TaskContent>
+        <TaskText textType='name' title={task_name}>
+          {task_name}
+        </TaskText>
+        {task_note && (
+          <>
+            <TaskText textType='heading'>Note:</TaskText>
+            <TaskText textType='note'>{task_note}</TaskText>
+          </>
+        )}
+      </TaskContent>
     </TaskContainer>
   );
 };
