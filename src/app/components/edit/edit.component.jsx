@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,10 +19,16 @@ const EditButton = styled.button`
   &:hover {
     color: var(--secondary-color);
   }
-  &:focus {
+  &:focus,
+  &:focus-within {
     div {
+      display: flex;
       opacity: 1;
+      z-index: 998;
     }
+  }
+  div {
+    display: none;
   }
   position: absolute;
   top: 35px;

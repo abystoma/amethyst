@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import AppContext from './context/AppContext';
 
 import Navbar from './components/navbar/navbar.index';
+import Footer from './components/footer/footer.component';
 
 import Home from './pages/home/home.index';
 import Login from './pages/login/login.index';
@@ -20,7 +21,7 @@ function App() {
           path='/login'
           element={
             <>
-              <Home />
+              {user?.id === undefined && <Home />}
               <Login />
             </>
           }
@@ -49,6 +50,7 @@ function App() {
           <Route path='project/create' element={<Project />} />
         </Route>
       </Routes>
+      {user?.id === undefined && <Footer />}
     </>
   );
 }
